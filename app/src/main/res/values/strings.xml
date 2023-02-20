@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CPSC411</string>
+    <color id = "color" name="color">#00ffff</color>
+</resources>
