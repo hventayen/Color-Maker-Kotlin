@@ -9,24 +9,6 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="106dp"
-        android:layout_marginBottom="10dp"
-        android:text="button"
-        android:textSize="0sp"
-        android:textColor="#000000"
-        android:background="#ffffff"
-        app:backgroundTint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/sb_red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <SeekBar
         android:id="@+id/sb_blue"
         android:layout_width="83dp"
@@ -73,16 +55,16 @@
         android:progress="255"
         app:layout_constraintBottom_toTopOf="@+id/sb_green"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <EditText
         android:id="@+id/et_red"
         android:layout_width="52dp"
         android:layout_height="53dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="92dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
@@ -91,7 +73,7 @@
         app:layout_constraintBottom_toTopOf="@+id/et_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sb_red"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <EditText
         android:id="@+id/et_blue"
@@ -131,13 +113,13 @@
         android:layout_width="58dp"
         android:layout_height="54dp"
         android:layout_marginStart="98dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/sw_green"
         app:layout_constraintEnd_toStartOf="@+id/sb_red"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/view"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Switch
@@ -167,6 +149,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sw_green"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="227dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="99dp"
+        android:text="reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sb_blue" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="211dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/sb_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

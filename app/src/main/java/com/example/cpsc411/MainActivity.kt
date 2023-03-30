@@ -1,18 +1,21 @@
 package com.example.cpsc411
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.graphics.Color.rgb
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var button: Button
+    private lateinit var view: View
+    private lateinit var reset: Button
     private lateinit var sb_red: SeekBar
     private lateinit var sb_green: SeekBar
     private lateinit var sb_blue: SeekBar
@@ -25,14 +28,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sw_green: Switch
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private lateinit var sw_blue: Switch
-
+    var red = 0
+    var green = 0
+    var blue = 0
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-        button = findViewById(R.id.button)
+        view = findViewById(R.id.view)
+        reset = findViewById(R.id.reset)
 
         sb_red = findViewById(R.id.sb_red)
         sb_green = findViewById(R.id.sb_green)
@@ -46,9 +52,14 @@ class MainActivity : AppCompatActivity() {
         sw_green = findViewById<Switch>(R.id.sw_green)
         sw_blue = findViewById<Switch>(R.id.sw_blue)
 
-        var red = 0
-        var green = 0
-        var blue = 0
+        sb_red.progress = 0
+        sb_green.progress = 0
+        sb_blue.progress = 0
+        view.setBackgroundColor(Color.rgb(sb_red.progress, sb_green.progress, sb_blue.progress))
+        fun changeColor() {
+            view.setBackgroundColor(Color.rgb(sb_red.progress, sb_green.progress, sb_blue.progress))
+
+        }
 
         sb_red.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, p2: Boolean) {
@@ -57,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                     red = seekBar.progress
                     if (sb_red.progress != 0)
                         sw_red.isChecked = false
-                    button.setBackgroundColor(rgb(red, green, blue))
+                    changeColor()
                 }
             }
 
@@ -76,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                     green = seekBar.progress
                     if (sb_green.progress != 0)
                         sw_green.isChecked = false
-                    button.backgroundTintList = getColorStateList(R.color.color)
+                    changeColor()
                 }
             }
 
@@ -96,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                     blue = seekBar.progress
                     if (sb_blue.progress != 0)
                         sw_blue.isChecked = false
-                    button.backgroundTintList = getColorStateList(android.R.color.holo_purple)
+                    changeColor()
                 }
             }
 
@@ -191,5 +202,16 @@ class MainActivity : AppCompatActivity() {
                 sb_blue.progress = 0
         }
 
+        reset.setOnClickListener{
+            sb_red.progress = 0
+            sb_green.progress = 0
+            sb_blue.progress = 0
+            sw_red.isChecked = false
+            sw_green.isChecked = false
+            sw_blue.isChecked = false
+            et_red.setText("0")
+            et_green.setText("0")
+            et_blue.setText("0")
+        }
     }
 }
