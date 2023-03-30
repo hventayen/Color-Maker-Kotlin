@@ -8,7 +8,6 @@
     android:background="#ffffff"
     tools:context=".MainActivity">
 
-
     <SeekBar
         android:id="@+id/sb_blue"
         android:layout_width="83dp"

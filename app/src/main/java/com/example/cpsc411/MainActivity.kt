@@ -55,7 +55,9 @@ class MainActivity : AppCompatActivity() {
         sb_red.progress = 0
         sb_green.progress = 0
         sb_blue.progress = 0
+
         view.setBackgroundColor(Color.rgb(sb_red.progress, sb_green.progress, sb_blue.progress))
+
         fun changeColor() {
             view.setBackgroundColor(Color.rgb(sb_red.progress, sb_green.progress, sb_blue.progress))
 
